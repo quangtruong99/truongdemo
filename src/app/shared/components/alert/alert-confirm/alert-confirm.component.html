@@ -1,15 +1,14 @@
-<div
-  class="fixed z-[999] left-0 top-0 w-full h-full overflow-auto bg-background flex justify-center items-center py-12 px-0 flex-col">
+<div class="wrap-modal">
   <!-- Modal content -->
-  <div class="model_header">
+  <div class="model_header bg-primary">
     <img *ngIf="alert?.icon" [src]="alert.icon" alt="" (click)="close()" />
   </div>
-  <div class="bg-white max-w-[500px] w-full rounded-lg">
-    <div class="text-cente">
+  <div class="modal-content">
+    <div class="modal-body">
       <h3 [ngStyle]="{ 'margin-bottom': alert.message ? '1.6rem' : '3rem' }" class="text-center pt-8">
         {{ alert.title }}
       </h3>
-      <p class="text-center" *ngIf="!alert?.arrayMessage">{{ alert.message }}</p>
+      <p *ngIf="!alert?.arrayMessage">{{ alert.message }}</p>
       <div *ngIf="alert?.arrayMessage">
         <p *ngFor="let item of alert?.arrayMessage">{{ item }}</p>
       </div>
@@ -17,25 +16,19 @@
         <input (keyup)="key(text.value)" #text type="text" />
       </div>
     </div>
-    <div class="flex justify-center gap-[30px] mb-8">
-      <button
-        class="max-w-[263px] px-[50px] py-[12px] rounded-[20px] border-none whitespace-nowrap btn-primary hover border-radius-large"
-        *ngIf="alert.mode === CrudType.CLOSE" (click)="close()">
+    <div class="modal-footer">
+      <button class="btn btn-primary hover border-radius-large" *ngIf="alert.mode === CrudType.CLOSE" (click)="close()">
         {{ alert.textBtnError || 'Close' }}
       </button>
-      <button
-        class="max-w-[263px] px-[50px] py-[12px] rounded-[20px] border-none whitespace-nowrap btn-primary hover border-radius-large"
-        *ngIf="alert.mode === CrudType.CONFIRM" (click)="close()">
+      <button class="btn btn-secondary border-radius-large" *ngIf="alert.mode === CrudType.CONFIRM" (click)="close()">
         {{ 'Cancel' }}
       </button>
-      <button
-        class="max-w-[263px] px-[50px] py-[12px] rounded-[20px] border-none whitespace-nowrap btn-primary hover border-radius-large"
+      <button class="btn btn-primary hover border-radius-large"
         *ngIf="alert.mode === CrudType.SAVE || alert.mode === CrudType.CONFIRM" (click)="save()">
         {{ alert.textBtnConfirm || 'Save' }}
       </button>
-      <button
-        class="max-w-[263px] px-[50px] py-[12px] rounded-[20px] border-none whitespace-nowrap btn-primary hover border-radius-large"
-        *ngIf="alert.mode === CrudType.SUCCESS" (click)="success()">
+      <button class="btn btn-primary hover border-radius-large" *ngIf="alert.mode === CrudType.SUCCESS"
+        (click)="success()">
         {{ alert.textBtnSuccess || 'OK' }}
       </button>
     </div>
