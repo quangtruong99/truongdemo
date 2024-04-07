@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import './assets/theme/reset.scss';
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+html {
+  font-size: 14px;
+  min-width: 320px;
+  scroll-behavior: smooth;
+  body {
+    margin: 0;
+    font-family: 'SourceHanSansJP-Regular', 'Lato', 'Noto Sans JP',
+      'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo,
+      'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'SourceHanSansJP-Regular';
+  src: url(/assets/font/SourceHanSansJP-Regular.otf);
+}
+
+@font-face {
+  font-family: 'SourceHanSansJP-Medium';
+  src: url(/assets/font/SourceHanSansJP-Medium.otf);
+}
+
+@font-face {
+  font-family: 'SourceHanSansJP-Normal';
+  src: url(/assets/font/SourceHanSansJP-Normal.otf);
+}
