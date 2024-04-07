@@ -5,6 +5,7 @@ import { ComponentActions } from '@shared/components/alert/component-actions';
 import { CrudType } from '@shared/enums/crud-type.enum';
 import { BlogInterface } from '@shared/models/blog.model';
 import { ValidationService } from '@shared/services/validation.service';
+import { Subject, Subscription } from 'rxjs';
 import { HomeService } from 'src/app/home/home.service';
 
 @Component({
@@ -13,7 +14,7 @@ import { HomeService } from 'src/app/home/home.service';
   styleUrls: ['./blog-detail.component.scss'],
 })
 export class BlogDetailComponent implements OnInit {
-  id: any;
+  id: string;
   imageUrl: any = '';
   formBlog: FormGroup | any;
   formError = {
@@ -33,7 +34,7 @@ export class BlogDetailComponent implements OnInit {
     },
   };
   isCreate = false;
-  subject_success: any;
+  subject_success: Subscription;
   nameImage: any;
   constructor(
     private componentAction: ComponentActions,
@@ -44,7 +45,7 @@ export class BlogDetailComponent implements OnInit {
     private router: Router
   ) {}
   ngOnInit(): void {
-    this.id = this.activeRouter.snapshot.paramMap.get('id');
+    this.id = this.activeRouter.snapshot.paramMap.get('id') as string;
     if (this.id === 'create') {
       this.isCreate = true;
     } else {
@@ -118,8 +119,6 @@ export class BlogDetailComponent implements OnInit {
     if (input.files && input.files.length) {
       const file = input.files[0];
       this.nameImage = file.name;
-      console.log(file);
-
       if (file) {
         this.imageUrl = await this.fileToBase64(file);
         this.formBlog.get('image').setValue(file);
@@ -187,7 +186,6 @@ export class BlogDetailComponent implements OnInit {
         },
         error: err => {
           this.componentAction.hideLoading();
-          console.log(err);
         },
       });
     }
