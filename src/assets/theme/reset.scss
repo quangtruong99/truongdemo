@@ -1,0 +1,175 @@
+@charset "utf-8";
+/* default.css 2.0 by © ARTI FACTORY last update 2011.11.10 */
+
+/* ------------------------------------------------------------ Initialization of the browser style */
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+address,
+code,
+em,
+span.strong,
+img,
+q,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+hr {
+    padding: 0;
+    margin: 0;
+    /*zoom: 1;*/
+    font-style: normal;
+    font-weight: normal;
+    word-break: break-all;
+}
+
+/* ------------------------------------------------------------ body reset */
+
+* {
+    box-sizing: border-box;
+}
+
+table {
+    font-size: 100%;
+}
+
+strong {
+    font-weight: normal;
+}
+
+/* ------------------------------------------------------------ Table Elements */
+
+table,
+th,
+td {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* ------------------------------------------------------------ Form Elements */
+
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+
+button {
+    border: 0;
+    &:disabled {
+        cursor: not-allowed !important;
+    }
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:focus {
+    outline: unset !important;
+}
+
+label {
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------ etc */
+
+a,
+fieldset,
+img {
+    border: 0;
+    text-decoration: none;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+/* ------------------------------------------------------------ img */
+
+*:first-child + html img {
+    vertical-align: bottom;
+}
+
+* html img {
+    vertical-align: bottom;
+}
+
+img {
+    margin-bottom: 0;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;
+    border: none;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ------------------------------------------------------------ input */
+
+input {
+    vertical-align: middle;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+input:focus {
+    outline: unset;
+}
+
+*:first-child + html input {
+    vertical-align: middle;
+}
+
+* html input {
+    vertical-align: middle;
+}
+
+/* ------------------------------------------------------------ select */
+
+select {
+    vertical-align: middle;
+}
+
+*:first-child + html select {
+    vertical-align: middle;
+}
+
+* html select {
+    vertical-align: middle;
+}
+
+/* ------------------------------------------------------------ shortcuts */
+
