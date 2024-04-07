@@ -14,7 +14,7 @@
     <li class="media cursor-pointer my-3"
       *ngFor="let blog of listBlog | paginate: { itemsPerPage: limit, currentPage: p } | filter:queryparam.searchText">
       <img (click)="navigateDetail(blog)" [ngStyle]="{'width': '67px'}" src="{{blog.image}}" class="mr-3" alt="..."
-        onerror="this.src = '/assets/images/img_default.png'" />
+        onerror="this.src = '/assets/images/img_default.svg'" />
       <div class="media-body">
         <h5 class="mt-0 mb-1">{{blog.title}}</h5>
         {{blog.content}}

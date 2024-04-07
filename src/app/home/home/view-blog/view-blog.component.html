@@ -4,7 +4,8 @@
   <div class="card mb-3 m-auto" style="max-width: 540px;">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <img src="{{blogDetail.image}}" class="card-img" alt="...">
+        <img src="{{blogDetail.image}}" onerror="this.src = '/assets/images/img_default.svg'" class="card-img"
+          alt="...">
       </div>
       <div class="col-md-8">
         <div class="card-body">

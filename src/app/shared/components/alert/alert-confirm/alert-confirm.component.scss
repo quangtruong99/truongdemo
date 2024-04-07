@@ -89,13 +89,6 @@
     display: flex;
     justify-content: center;
     column-gap: 3rem;
-    .btn {
-      max-width: 26.3rem;
-      padding: 12px 50px;
-      border-radius: 20px;
-      border: none;
-      white-space: nowrap;
-    }
   }
 }
 @media (max-width: 768px) {
