@@ -4,5 +4,5 @@ export interface BlogInterface {
   image?: string | null;
   id?: any;
   created_at: number;
-  updated_At: number;
+  updated_at: number;
 }
