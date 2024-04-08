@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ComponentActions } from '@shared/components/alert/component-actions';
 import { CrudType } from '@shared/enums/crud-type.enum';
+import { Utils } from '@shared/enums/utils';
 import { BlogInterface } from '@shared/models/blog.model';
 import { ValidationService } from '@shared/services/validation.service';
 import { Subject, Subscription } from 'rxjs';
@@ -35,7 +36,6 @@ export class BlogDetailComponent implements OnInit {
   };
   isCreate = false;
   subject_success: Subscription;
-  nameImage: any;
   constructor(
     private componentAction: ComponentActions,
     private homeService: HomeService,
@@ -118,10 +118,9 @@ export class BlogDetailComponent implements OnInit {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length) {
       const file = input.files[0];
-      this.nameImage = file.name;
       if (file) {
         this.imageUrl = await this.fileToBase64(file);
-        this.formBlog.get('image').setValue(file);
+        this.formBlog.get('image').setValue(this.imageUrl);
       }
     }
   }
@@ -144,14 +143,10 @@ export class BlogDetailComponent implements OnInit {
       );
       return;
     }
-    // const formData: FormData = new FormData();
-    // formData.append('title', this.formBlog.value.title);
-    // formData.append('content', this.formBlog.value.content);
-    // formData.append('image', this.nameImage);
     const body = {
       title: this.formBlog.value.title,
       content: this.formBlog.value.content,
-      image: this.nameImage,
+      image: this.formBlog.value.image,
     };
     this.componentAction.showLoading();
     if (this.isCreate) {
@@ -168,6 +163,11 @@ export class BlogDetailComponent implements OnInit {
           this.componentAction.hideLoading();
         },
         error: err => {
+          this.componentAction.showPopup({
+            title: Utils.TITLE_ERROR,
+            message: err.errors,
+            mode: CrudType.CLOSE,
+          });
           this.componentAction.hideLoading();
         },
       });
@@ -185,6 +185,11 @@ export class BlogDetailComponent implements OnInit {
           this.componentAction.hideLoading();
         },
         error: err => {
+          this.componentAction.showPopup({
+            title: Utils.TITLE_ERROR,
+            message: err.errors,
+            mode: CrudType.CLOSE,
+          });
           this.componentAction.hideLoading();
         },
       });

@@ -1,6 +1,6 @@
 <!-- eslint-disable prettier/prettier -->
 <div
-  class="w-75 block border border-solid border-[#eee] shadow-boxShadow ml-auto mr-auto mt-5 mb-5 rounded-4 py-4 px-4">
+  class="content w-75 block border border-solid border-[#eee] shadow-boxShadow ml-auto mr-auto mt-5 mb-5 rounded-4 py-4 px-4">
   <h3 class="d-block mb-5 text-center">List Blogs</h3>
   <div class="input-group mb-5">
     <input type="text" class="form-control" placeholder="Search this blog" [(ngModel)]="queryparam.searchText">
@@ -16,8 +16,8 @@
       <img (click)="navigateDetail(blog)" [ngStyle]="{'width': '67px'}" src="{{blog.image}}" class="mr-3" alt="..."
         onerror="this.src = '/assets/images/img_default.svg'" />
       <div class="media-body">
-        <h5 class="mt-0 mb-1">{{blog.title}}</h5>
-        {{blog.content}}
+        <h5 class="mt-0 mb-1">{{blog?.title}}</h5>
+        {{blog?.content}}
       </div>
       <div class="" role="button" style="width: 20px; height: 20px;" (click)="navigateEdit(blog)">
         <i class="bi bi-pencil-square"></i>

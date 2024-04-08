@@ -11,7 +11,7 @@ import { HomeService } from 'src/app/home/home.service';
 })
 export class ViewBlogComponent implements OnInit {
   id: any;
-  blogDetail: BlogInterface | any;
+  blogDetail: BlogInterface | any = {};
   constructor(
     private componentAction: ComponentActions,
     private homeService: HomeService,
@@ -41,7 +41,7 @@ export class ViewBlogComponent implements OnInit {
       image: data?.image,
       title: data.title,
       content: data.content,
-      created_at: this.timeConvert(data.updated_At),
+      updated_at: this.timeConvert(data.updated_at),
     };
   }
 
