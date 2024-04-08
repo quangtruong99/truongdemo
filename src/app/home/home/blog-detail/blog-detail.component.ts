@@ -119,8 +119,13 @@ export class BlogDetailComponent implements OnInit {
     if (input.files && input.files.length) {
       const file = input.files[0];
       if (file) {
-        this.imageUrl = await this.fileToBase64(file);
-        this.formBlog.get('image').setValue(this.imageUrl);
+        const maxSizeMegabyte = 0.048828125;
+        const maxSizeByte = maxSizeMegabyte * 1048576;
+        if (file.size > maxSizeByte) {
+        } else {
+          this.imageUrl = await this.fileToBase64(file);
+          this.formBlog.get('image').setValue(this.imageUrl);
+        }
       }
     }
   }
