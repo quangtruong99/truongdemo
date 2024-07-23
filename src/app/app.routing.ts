@@ -7,7 +7,7 @@ export const APP_ROUTES: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    loadChildren: () => import('./atm/atm.module').then(m => m.AtmModule),
     canActivate: [],
   },
   {
