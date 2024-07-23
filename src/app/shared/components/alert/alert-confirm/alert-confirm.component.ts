@@ -8,7 +8,7 @@ import { AlertModel } from '@shared/models/alert.model';
   styleUrls: ['./alert-confirm.component.scss'],
   providers: [],
 })
-export class AlertConfirmComponent implements OnInit {
+export class AlertConfirmComponent {
   @Input() alert: AlertModel | any;
   @Input() show_input = false;
   @Output() handleClose = new EventEmitter();
@@ -17,10 +17,6 @@ export class AlertConfirmComponent implements OnInit {
   @Output() handleSuccess = new EventEmitter();
 
   CrudType = CrudType;
-  constructor() {}
-
-  ngOnInit() {}
-
   close() {
     this.handleClose.emit(this.alert);
   }
